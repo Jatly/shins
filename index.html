@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi Kazama</title>
+    <link rel="icon" href="aj.ico" type="image/x-icon">
+    <title>Your Page Title</title>
+
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body onload="checkAllYes()">
+    <h1 class="title">Answer as you like..!</h1>
+    <div class="container">
+            <!-- Background Music -->
+    <audio id="backgroundMusic" autoplay loop>
+        <source src="./background-music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+        <!-- Question 1 -->
+        <div class="question-box" id="question1">
+            <div class="gif_container">
+                <img src="g3.gif" alt="Cute animated illustration">
+            </div>
+            <h1 class="header_text">Who is Cute?</h1>
+            <div class="buttons">
+                <button class="btn" onclick="selectAnswer(this, 'Yes')">Jatly</button>
+                <button class="btn noButton" onmouseover="moveButton(this)" onclick="selectAnswer(this, 'No')">Akshaya</button>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question-box" id="question2">
+            <div class="gif_container">
+                <img src="g7.gif" alt="Cute animated illustration">
+            </div>
+            <h1 class="header_text">Who sings "Mundhinam" song well?</h1>
+            <div class="buttons">
+                <button class="btn" onclick="selectAnswer(this, 'Yes')">Jatly</button>
+                <button class="btn noButton" onmouseover="moveButton(this)" onclick="selectAnswer(this, 'No')">Akshaya</button>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question-box" id="question3">
+            <div class="gif_container">
+                <img src="g12.gif" alt="Cute animated illustration">
+            </div>
+            <h1 class="header_text">Jatly is the Spiderman do you agree?</h1>
+            <div class="buttons">
+                <button class="btn" onclick="selectAnswer(this, 'Yes')">Agree</button>
+                <button class="btn noButton" onmouseover="moveButton(this)" onclick="selectAnswer(this, 'No')">Strongly Disagre</button>
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question-box" id="question4">
+            <div class="gif_container">
+                <img src="g8.gif" alt="Cute animated illustration">
+            </div>
+            <h1 class="header_text">Will you buy me a pizza?</h1>
+            <div class="buttons">
+                <button class="btn" onclick="selectAnswer(this, 'Yes')">Yes</button>
+                <button class="btn noButton" onmouseover="moveButton(this)" onclick="selectAnswer(this, 'No')">No</button>
+            </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="question-box" id="question5">
+            <div class="gif_container">
+                <img src="g13.gif" alt="Cute animated illustration">
+            </div>
+            <h1 class="header_text">who is Lazy?</h1>
+            <div class="buttons">
+                <button class="btn" onclick="selectAnswer(this, 'Yes')">Akshaya</button>
+                <button class="btn noButton" onmouseover="moveButton(this)" onclick="selectAnswer(this, 'No')">Jatly</button>
+            </div>
+        </div>
+
+        <!-- Warning Popup -->
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <h2>Hehehehe!</h2>
+                <!-- <p>You have been selected for this amazing journey!</p> -->
+                <img src="g6.gif" alt="Warning GIF" class="popup-gif">
+                <button onclick="goToNextPage()">Proceed</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            // Set background music volume to 100% temporarily for testing
+            document.getElementById('backgroundMusic').volume = 1.0;
+        };
+        function checkAllYes() {
+            const questions = document.querySelectorAll('.question-box');
+            let allYes = true;
+
+            questions.forEach(question => {
+                if (question.getAttribute('data-answer') !== 'Yes') {
+                    allYes = false;
+                }
+            });
+
+            if (allYes) {
+                document.getElementById('popup').style.display = 'block';
+            }
+        }
+        
+
+        function moveButton(button) {
+            var x = Math.random() * (window.innerWidth - button.offsetWidth) - 85;
+            var y = Math.random() * (window.innerHeight - button.offsetHeight) - 48;
+            button.style.position = 'absolute';
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+
+        function selectAnswer(button, answer) {
+            const buttons = button.parentElement.querySelectorAll('.btn');
+            buttons.forEach(btn => btn.classList.remove('selected'));
+            button.classList.add('selected');
+
+            button.closest('.question-box').setAttribute('data-answer', answer);
+            checkAllYes();
+        }
+
+        function goToNextPage() {
+            document.getElementById('popup').style.display = 'none';
+            window.location.href = "yes.html";
+        }
+    </script>
+
+</body>
+</html>

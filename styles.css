@@ -1,0 +1,110 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: lightsalmon;
+}
+.title{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 50px;
+    color: black;
+    display: flex;
+}
+/* Center content */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+}
+
+/* Style for each question box */
+.question-box {
+    border: 2px solid #000; /* Black border around the box */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Add some space inside the box */
+    margin-bottom: 20px; /* Space between questions */
+    background-color: #ffffff; /* Light background for the box */
+    width: 80%; /* Optional: set a width for the question box */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Header text */
+.header_text {
+    font-size: 28px;
+    color: black;
+    text-align: center;
+    margin: 15px 0;
+}
+
+/* Styling for the buttons */
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: #000000;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.noButton {
+    position: relative;
+}
+
+.selected {
+    background-color: #4CAF50; /* Green color for selected button */
+}
+
+/* Styling for the gif container */
+.gif_container {
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.gif_container img {
+    width: 100%; /* Ensures the image takes the full width of the container */
+    height: auto; /* Maintains the aspect ratio */
+    max-width: 300px; /* Sets a maximum size for the GIF */
+}
+
+/* Popup styles */
+.popup {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+.popup-content {
+    text-align: center;
+}
+
+.popup-gif {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
